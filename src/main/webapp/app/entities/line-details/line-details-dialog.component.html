@@ -1,0 +1,105 @@
+
+
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+        <h4 class="modal-title" id="myLineDetailsLabel">Create or edit a Line Details</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!lineDetails.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="lineDetails.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_heading">Heading</label>
+            <input type="checkbox" class="form-control" name="heading" id="field_heading"
+                [(ngModel)]="lineDetails.heading"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                [(ngModel)]="lineDetails.code"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                [(ngModel)]="lineDetails.description"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_equation">Equation</label>
+            <input type="text" class="form-control" name="equation" id="field_equation"
+                [(ngModel)]="lineDetails.equation"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_lineNumber">Line Number</label>
+            <input type="text" class="form-control" name="lineNumber" id="field_lineNumber"
+                [(ngModel)]="lineDetails.lineNumber"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_ruleText">Rule Text</label>
+            <input type="text" class="form-control" name="ruleText" id="field_ruleText"
+                [(ngModel)]="lineDetails.ruleText"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_lineType">Line Type</label>
+            <input type="text" class="form-control" name="lineType" id="field_lineType"
+                [(ngModel)]="lineDetails.lineType"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_companyType">Company Type</label>
+            <input type="text" class="form-control" name="companyType" id="field_companyType"
+                [(ngModel)]="lineDetails.companyType"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_useConfidenceGrade">Use Confidence Grade</label>
+            <input type="checkbox" class="form-control" name="useConfidenceGrade" id="field_useConfidenceGrade"
+                [(ngModel)]="lineDetails.useConfidenceGrade"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_validationRuleCode">Validation Rule Code</label>
+            <input type="text" class="form-control" name="validationRuleCode" id="field_validationRuleCode"
+                [(ngModel)]="lineDetails.validationRuleCode"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_textCode">Text Code</label>
+            <input type="text" class="form-control" name="textCode" id="field_textCode"
+                [(ngModel)]="lineDetails.textCode"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_unit">Unit</label>
+            <input type="text" class="form-control" name="unit" id="field_unit"
+                [(ngModel)]="lineDetails.unit"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_decimalPlaces">Decimal Places</label>
+            <input type="number" class="form-control" name="decimalPlaces" id="field_decimalPlaces"
+                [(ngModel)]="lineDetails.decimalPlaces"
+             />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,98 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "modelType",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "textCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "baseYearCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "reportYearCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "allowDataChanges",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "modelFamilyCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "modelFamilyParent",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "displayOrder",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "branchTag",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "runCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastModified",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "created",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastModifiedBy",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fountainModelId",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20161109125711",
+    "entityTableName": "model_details",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

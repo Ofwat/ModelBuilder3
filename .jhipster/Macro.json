@@ -1,0 +1,47 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "model",
+            "otherEntityName": "model",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "block",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "conditionalItemCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pageCode",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161109125741",
+    "entityTableName": "macro",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

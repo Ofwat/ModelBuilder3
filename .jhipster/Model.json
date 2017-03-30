@@ -1,0 +1,91 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "modelDetails",
+            "otherEntityName": "modelDetails",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "model"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "modelAudits",
+            "otherEntityName": "modelAudit",
+            "otherEntityRelationshipName": "model"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "items",
+            "otherEntityName": "item",
+            "otherEntityRelationshipName": "model"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "years",
+            "otherEntityName": "year",
+            "otherEntityRelationshipName": "model"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "headings",
+            "otherEntityName": "heading",
+            "otherEntityRelationshipName": "model"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "validationRules",
+            "otherEntityName": "validationRule",
+            "otherEntityRelationshipName": "model"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "companyPages",
+            "otherEntityName": "companyPage",
+            "otherEntityRelationshipName": "model"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "documents",
+            "otherEntityName": "modelBuilderDocument",
+            "otherEntityRelationshipName": "model"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "pages",
+            "otherEntityName": "page",
+            "otherEntityRelationshipName": "model"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "transfers",
+            "otherEntityName": "transfer",
+            "otherEntityRelationshipName": "model"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "macros",
+            "otherEntityName": "macro",
+            "otherEntityRelationshipName": "model"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "texts",
+            "otherEntityName": "text",
+            "otherEntityRelationshipName": "model"
+        },
+        {
+            "relationshipName": "input",
+            "otherEntityName": "input",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "model"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20161109125710",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "model",
+    "pagination": "no"
+}

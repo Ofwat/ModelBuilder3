@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "yearCodes",
+            "otherEntityName": "yearCode",
+            "otherEntityRelationshipName": "transferBlockItem"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "transferBLock",
+            "otherEntityName": "transferBlock",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "itemCode",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "companyType",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161109125716",
+    "entityTableName": "transfer_block_item",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

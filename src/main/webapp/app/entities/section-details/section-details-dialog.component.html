@@ -1,0 +1,153 @@
+
+
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+        <h4 class="modal-title" id="mySectionDetailsLabel">Create or edit a Section Details</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!sectionDetails.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="sectionDetails.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_display">Display</label>
+            <input type="text" class="form-control" name="display" id="field_display"
+                [(ngModel)]="sectionDetails.display"
+            required />
+            <div [hidden]="!(editForm.controls.display?.dirty && editForm.controls.display?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.display?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                [(ngModel)]="sectionDetails.code"
+            required />
+            <div [hidden]="!(editForm.controls.code?.dirty && editForm.controls.code?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.code?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_groupType">Group Type</label>
+            <input type="text" class="form-control" name="groupType" id="field_groupType"
+                [(ngModel)]="sectionDetails.groupType"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_useLineNumber">Use Line Number</label>
+            <input type="checkbox" class="form-control" name="useLineNumber" id="field_useLineNumber"
+                [(ngModel)]="sectionDetails.useLineNumber"
+             />
+            <div [hidden]="!(editForm.controls.useLineNumber?.dirty && editForm.controls.useLineNumber?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.useLineNumber?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_useItemCode">Use Item Code</label>
+            <input type="checkbox" class="form-control" name="useItemCode" id="field_useItemCode"
+                [(ngModel)]="sectionDetails.useItemCode"
+             />
+            <div [hidden]="!(editForm.controls.useItemCode?.dirty && editForm.controls.useItemCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.useItemCode?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_useItemDescription">Use Item Description</label>
+            <input type="checkbox" class="form-control" name="useItemDescription" id="field_useItemDescription"
+                [(ngModel)]="sectionDetails.useItemDescription"
+             />
+            <div [hidden]="!(editForm.controls.useItemDescription?.dirty && editForm.controls.useItemDescription?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.useItemDescription?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_useUnit">Use Unit</label>
+            <input type="checkbox" class="form-control" name="useUnit" id="field_useUnit"
+                [(ngModel)]="sectionDetails.useUnit"
+             />
+            <div [hidden]="!(editForm.controls.useUnit?.dirty && editForm.controls.useUnit?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.useUnit?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_useYearCode">Use Year Code</label>
+            <input type="checkbox" class="form-control" name="useYearCode" id="field_useYearCode"
+                [(ngModel)]="sectionDetails.useYearCode"
+             />
+            <div [hidden]="!(editForm.controls.useYearCode?.dirty && editForm.controls.useYearCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.useYearCode?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_useConfidenceGrades">Use Confidence Grades</label>
+            <input type="checkbox" class="form-control" name="useConfidenceGrades" id="field_useConfidenceGrades"
+                [(ngModel)]="sectionDetails.useConfidenceGrades"
+             />
+            <div [hidden]="!(editForm.controls.useConfidenceGrades?.dirty && editForm.controls.useConfidenceGrades?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.useConfidenceGrades?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_allowGroupSelection">Allow Group Selection</label>
+            <input type="checkbox" class="form-control" name="allowGroupSelection" id="field_allowGroupSelection"
+                [(ngModel)]="sectionDetails.allowGroupSelection"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_allowDataChanges">Allow Data Changes</label>
+            <input type="checkbox" class="form-control" name="allowDataChanges" id="field_allowDataChanges"
+                [(ngModel)]="sectionDetails.allowDataChanges"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_sectionType">Section Type</label>
+            <input type="text" class="form-control" name="sectionType" id="field_sectionType"
+                [(ngModel)]="sectionDetails.sectionType"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_itemCodeColumn">Item Code Column</label>
+            <input type="number" class="form-control" name="itemCodeColumn" id="field_itemCodeColumn"
+                [(ngModel)]="sectionDetails.itemCodeColumn"
+             />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

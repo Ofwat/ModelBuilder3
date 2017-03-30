@@ -1,0 +1,69 @@
+
+
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+        <h4 class="modal-title" id="myTransferBlockDetailsLabel">Create or edit a Transfer Block Details</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!transferBlockDetails.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="transferBlockDetails.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_fromModelCode">From Model Code</label>
+            <input type="text" class="form-control" name="fromModelCode" id="field_fromModelCode"
+                [(ngModel)]="transferBlockDetails.fromModelCode"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_fromVersionCode">From Version Code</label>
+            <input type="text" class="form-control" name="fromVersionCode" id="field_fromVersionCode"
+                [(ngModel)]="transferBlockDetails.fromVersionCode"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_fromPageCode">From Page Code</label>
+            <input type="text" class="form-control" name="fromPageCode" id="field_fromPageCode"
+                [(ngModel)]="transferBlockDetails.fromPageCode"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_toModelCode">To Model Code</label>
+            <input type="text" class="form-control" name="toModelCode" id="field_toModelCode"
+                [(ngModel)]="transferBlockDetails.toModelCode"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_toVersionCode">To Version Code</label>
+            <input type="text" class="form-control" name="toVersionCode" id="field_toVersionCode"
+                [(ngModel)]="transferBlockDetails.toVersionCode"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_toPageCode">To Page Code</label>
+            <input type="text" class="form-control" name="toPageCode" id="field_toPageCode"
+                [(ngModel)]="transferBlockDetails.toPageCode"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_toMacroCode">To Macro Code</label>
+            <input type="text" class="form-control" name="toMacroCode" id="field_toMacroCode"
+                [(ngModel)]="transferBlockDetails.toMacroCode"
+             />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

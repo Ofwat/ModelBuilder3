@@ -1,0 +1,44 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "model",
+            "otherEntityName": "model",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "versionNumber",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "pricebaseCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "purposeCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "textCode",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161109125720",
+    "entityTableName": "item",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

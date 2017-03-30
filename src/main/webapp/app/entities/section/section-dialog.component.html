@@ -1,0 +1,41 @@
+
+
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+        <h4 class="modal-title" id="mySectionLabel">Create or edit a Section</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!section.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="section.id" readonly />
+        </div>
+
+        <div class="form-group">
+            <label for="field_sectionDetail">Section Detail</label>
+            <select class="form-control" id="field_sectionDetail" name="sectionDetail" [(ngModel)]="section.sectionDetail">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="sectionDetailsOption.id === section.sectionDetail?.id ? section.sectionDetail : sectionDetailsOption" *ngFor="let sectionDetailsOption of sectiondetails; trackBy: trackSectionDetailsById">{{sectionDetailsOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_page">Page</label>
+            <select class="form-control" id="field_page" name="page" [(ngModel)]="section.page" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="pageOption.id === section.page?.id ? section.page : pageOption" *ngFor="let pageOption of pages; trackBy: trackPageById">{{pageOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

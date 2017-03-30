@@ -1,0 +1,49 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "pageText",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "companyType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "heading",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "commercialInConfidence",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "hidden",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "textCode",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161109125730",
+    "entityTableName": "page_details",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

@@ -1,0 +1,31 @@
+
+<div *ngIf="year">
+    <h2><span>Year</span> {{year.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Base</span></dt>
+        <dd>
+            <span>{{year.base}}</span>
+        </dd>
+        <dt><span>Model</span></dt>
+        <dd>
+            <div *ngIf="year.model">
+                <a [routerLink]="['/model', year.model?.id]">{{year.model?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'year/'+ year.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

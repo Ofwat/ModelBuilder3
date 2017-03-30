@@ -1,0 +1,43 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "sectionDetail",
+            "otherEntityName": "sectionDetails",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "section"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "documents",
+            "otherEntityName": "modelBuilderDocument",
+            "otherEntityRelationshipName": "section"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "lines",
+            "otherEntityName": "line",
+            "otherEntityRelationshipName": "section"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "forms",
+            "otherEntityName": "form",
+            "otherEntityRelationshipName": "section"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "page",
+            "otherEntityName": "page",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20161109125731",
+    "entityTableName": "section",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

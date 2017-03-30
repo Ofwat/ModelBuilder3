@@ -1,0 +1,39 @@
+
+<div *ngIf="line">
+    <h2><span>Line</span> {{line.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Line Detail</span></dt>
+        <dd>
+            <div *ngIf="line.lineDetail">
+                <a [routerLink]="['/line-details', line.lineDetail?.id]">{{line.lineDetail?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Cell Range</span></dt>
+        <dd>
+            <div *ngIf="line.cellRange">
+                <a [routerLink]="['/cell-range', line.cellRange?.id]">{{line.cellRange?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Section</span></dt>
+        <dd>
+            <div *ngIf="line.section">
+                <a [routerLink]="['/section', line.section?.id]">{{line.section?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'line/'+ line.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

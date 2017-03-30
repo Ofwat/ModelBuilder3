@@ -1,0 +1,53 @@
+
+<div *ngIf="modelBuilderDocument">
+    <h2><span>Model Builder Document</span> {{modelBuilderDocument.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Reporter</span></dt>
+        <dd>
+            <span>{{modelBuilderDocument.reporter}}</span>
+        </dd>
+        <dt><span>Auditor</span></dt>
+        <dd>
+            <span>{{modelBuilderDocument.auditor}}</span>
+        </dd>
+        <dt><span>Model</span></dt>
+        <dd>
+            <div *ngIf="modelBuilderDocument.model">
+                <a [routerLink]="['/model', modelBuilderDocument.model?.id]">{{modelBuilderDocument.model?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Page</span></dt>
+        <dd>
+            <div *ngIf="modelBuilderDocument.page">
+                <a [routerLink]="['/page', modelBuilderDocument.page?.id]">{{modelBuilderDocument.page?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Section</span></dt>
+        <dd>
+            <div *ngIf="modelBuilderDocument.section">
+                <a [routerLink]="['/section', modelBuilderDocument.section?.id]">{{modelBuilderDocument.section?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Line</span></dt>
+        <dd>
+            <div *ngIf="modelBuilderDocument.line">
+                <a [routerLink]="['/line', modelBuilderDocument.line?.id]">{{modelBuilderDocument.line?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'model-builder-document/'+ modelBuilderDocument.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,48 @@
+
+
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+        <h4 class="modal-title" id="myLineLabel">Create or edit a Line</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!line.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="line.id" readonly />
+        </div>
+
+        <div class="form-group">
+            <label for="field_lineDetail">Line Detail</label>
+            <select class="form-control" id="field_lineDetail" name="lineDetail" [(ngModel)]="line.lineDetail">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="lineDetailsOption.id === line.lineDetail?.id ? line.lineDetail : lineDetailsOption" *ngFor="let lineDetailsOption of linedetails; trackBy: trackLineDetailsById">{{lineDetailsOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_cellRange">Cell Range</label>
+            <select class="form-control" id="field_cellRange" name="cellRange" [(ngModel)]="line.cellRange">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="cellRangeOption.id === line.cellRange?.id ? line.cellRange : cellRangeOption" *ngFor="let cellRangeOption of cellranges; trackBy: trackCellRangeById">{{cellRangeOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_section">Section</label>
+            <select class="form-control" id="field_section" name="section" [(ngModel)]="line.section" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="sectionOption.id === line.section?.id ? line.section : sectionOption" *ngFor="let sectionOption of sections; trackBy: trackSectionById">{{sectionOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

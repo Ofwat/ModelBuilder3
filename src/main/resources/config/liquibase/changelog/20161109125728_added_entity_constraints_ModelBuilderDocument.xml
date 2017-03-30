@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity ModelBuilderDocument.
+    -->
+    <changeSet id="20161109125728-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="model_id"
+                                 baseTableName="model_builder_document"
+                                 constraintName="fk_model_builder_document_model_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="model"/>
+
+        <addForeignKeyConstraint baseColumnNames="page_id"
+                                 baseTableName="model_builder_document"
+                                 constraintName="fk_model_builder_document_page_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="page"/>
+
+        <addForeignKeyConstraint baseColumnNames="section_id"
+                                 baseTableName="model_builder_document"
+                                 constraintName="fk_model_builder_document_section_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="section"/>
+
+        <addForeignKeyConstraint baseColumnNames="line_id"
+                                 baseTableName="model_builder_document"
+                                 constraintName="fk_model_builder_document_line_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="line"/>
+
+    </changeSet>
+</databaseChangeLog>

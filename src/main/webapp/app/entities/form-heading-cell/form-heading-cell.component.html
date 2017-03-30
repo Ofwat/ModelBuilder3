@@ -1,0 +1,116 @@
+<div>
+    <h2><span>Form Heading Cells</span>
+        <button class="btn btn-primary float-xs-right create-form-heading-cell" [routerLink]="['/', { outlets: { popup: ['form-heading-cell-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down" >
+            Create new Form Heading Cell
+            </span>
+        </button></h2>
+    <jhi-alert></jhi-alert>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right">
+                        <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="Query">
+                        <span  class="input-group-btn width-min">
+                            <button class="btn btn-info" (click)="search(currentSearch)">
+                                <span class="fa fa-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" *ngIf="currentSearch">
+                            <button class="btn btn-info" (click)="clear()">
+                                <span class="fa fa-trash-o"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="formHeadingCells">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Text</span></th>
+            <th><span>Use Line Number</span></th>
+            <th><span>Use Item Code</span></th>
+            <th><span>Use Item Description</span></th>
+            <th><span>Use Unit</span></th>
+            <th><span>Use Year Code</span></th>
+            <th><span>Use Confidence Grades</span></th>
+            <th><span>Row</span></th>
+            <th><span>Form Heading Column</span></th>
+            <th><span>Row Span</span></th>
+            <th><span>Form Heading Column Span</span></th>
+            <th><span>Item Code</span></th>
+            <th><span>Year Code</span></th>
+            <th><span>Width</span></th>
+            <th><span>Cell Code</span></th>
+            <th><span>Group Description Code</span></th>
+            <th><span>Form Top</span></th>
+            <th><span>Form Left</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let formHeadingCell of formHeadingCells ;trackBy: trackId">
+                <td><a [routerLink]="['../form-heading-cell', formHeadingCell.id ]">{{formHeadingCell.id}}</a></td>
+                <td>{{formHeadingCell.text}}</td>
+                <td>{{formHeadingCell.useLineNumber}}</td>
+                <td>{{formHeadingCell.useItemCode}}</td>
+                <td>{{formHeadingCell.useItemDescription}}</td>
+                <td>{{formHeadingCell.useUnit}}</td>
+                <td>{{formHeadingCell.useYearCode}}</td>
+                <td>{{formHeadingCell.useConfidenceGrades}}</td>
+                <td>{{formHeadingCell.row}}</td>
+                <td>{{formHeadingCell.formHeadingColumn}}</td>
+                <td>{{formHeadingCell.rowSpan}}</td>
+                <td>{{formHeadingCell.formHeadingColumnSpan}}</td>
+                <td>{{formHeadingCell.itemCode}}</td>
+                <td>{{formHeadingCell.yearCode}}</td>
+                <td>{{formHeadingCell.width}}</td>
+                <td>{{formHeadingCell.cellCode}}</td>
+                <td>{{formHeadingCell.groupDescriptionCode}}</td>
+                <td>
+                    <div *ngIf="formHeadingCell.formTop">
+                        <a [routerLink]="['../form', formHeadingCell.formTop?.id ]" >{{formHeadingCell.formTop?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="formHeadingCell.formLeft">
+                        <a [routerLink]="['../form', formHeadingCell.formLeft?.id ]" >{{formHeadingCell.formLeft?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-xs-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../form-heading-cell', formHeadingCell.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'form-heading-cell/'+ formHeadingCell.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'form-heading-cell/'+ formHeadingCell.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

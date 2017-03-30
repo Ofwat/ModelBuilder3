@@ -1,0 +1,40 @@
+
+
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+        <h4 class="modal-title" id="myAuditChangeLabel">Create or edit a Audit Change</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!auditChange.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="auditChange.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_changeText">Change Text</label>
+            <input type="text" class="form-control" name="changeText" id="field_changeText"
+                [(ngModel)]="auditChange.changeText"
+             />
+        </div>
+
+        <div class="form-group">
+            <label for="field_modelAudit">Model Audit</label>
+            <select class="form-control" id="field_modelAudit" name="modelAudit" [(ngModel)]="auditChange.modelAudit" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="modelAuditOption.id === auditChange.modelAudit?.id ? auditChange.modelAudit : modelAuditOption" *ngFor="let modelAuditOption of modelaudits; trackBy: trackModelAuditById">{{modelAuditOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,43 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "formDetail",
+            "otherEntityName": "formDetails",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "form"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "formCells",
+            "otherEntityName": "formCell",
+            "otherEntityRelationshipName": "form"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "formHeadingsTop",
+            "otherEntityName": "formHeadingCell",
+            "otherEntityRelationshipName": "formTop"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "formHeadingsLeft",
+            "otherEntityName": "formHeadingCell",
+            "otherEntityRelationshipName": "formLeft"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "section",
+            "otherEntityName": "section",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20161109125737",
+    "entityTableName": "form",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

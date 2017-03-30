@@ -1,0 +1,76 @@
+
+
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+        <h4 class="modal-title" id="myItemLabel">Create or edit a Item</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!item.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="item.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                [(ngModel)]="item.code"
+            required />
+            <div [hidden]="!(editForm.controls.code?.dirty && editForm.controls.code?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.code?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_versionNumber">Version Number</label>
+            <input type="text" class="form-control" name="versionNumber" id="field_versionNumber"
+                [(ngModel)]="item.versionNumber"
+            required />
+            <div [hidden]="!(editForm.controls.versionNumber?.dirty && editForm.controls.versionNumber?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.versionNumber?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pricebaseCode">Pricebase Code</label>
+            <input type="text" class="form-control" name="pricebaseCode" id="field_pricebaseCode"
+                [(ngModel)]="item.pricebaseCode"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_purposeCode">Purpose Code</label>
+            <input type="text" class="form-control" name="purposeCode" id="field_purposeCode"
+                [(ngModel)]="item.purposeCode"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_textCode">Text Code</label>
+            <input type="text" class="form-control" name="textCode" id="field_textCode"
+                [(ngModel)]="item.textCode"
+             />
+        </div>
+
+        <div class="form-group">
+            <label for="field_model">Model</label>
+            <select class="form-control" id="field_model" name="model" [(ngModel)]="item.model" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="modelOption.id === item.model?.id ? item.model : modelOption" *ngFor="let modelOption of models; trackBy: trackModelById">{{modelOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

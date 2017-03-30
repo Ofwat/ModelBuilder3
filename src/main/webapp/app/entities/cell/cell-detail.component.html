@@ -1,0 +1,47 @@
+
+<div *ngIf="cell">
+    <h2><span>Cell</span> {{cell.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Code</span></dt>
+        <dd>
+            <span>{{cell.code}}</span>
+        </dd>
+        <dt><span>Year</span></dt>
+        <dd>
+            <span>{{cell.year}}</span>
+        </dd>
+        <dt><span>Equation</span></dt>
+        <dd>
+            <span>{{cell.equation}}</span>
+        </dd>
+        <dt><span>Type</span></dt>
+        <dd>
+            <span>{{cell.type}}</span>
+        </dd>
+        <dt><span>Cg Type</span></dt>
+        <dd>
+            <span>{{cell.cgType}}</span>
+        </dd>
+        <dt><span>Line</span></dt>
+        <dd>
+            <div *ngIf="cell.line">
+                <a [routerLink]="['/line', cell.line?.id]">{{cell.line?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'cell/'+ cell.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

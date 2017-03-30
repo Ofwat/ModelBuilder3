@@ -1,0 +1,87 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "display",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "groupType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "useLineNumber",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "useItemCode",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "useItemDescription",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "useUnit",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "useYearCode",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "useConfidenceGrades",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "allowGroupSelection",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "allowDataChanges",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "sectionType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "itemCodeColumn",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20161109125732",
+    "entityTableName": "section_details",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

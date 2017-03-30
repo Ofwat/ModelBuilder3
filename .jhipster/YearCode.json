@@ -1,0 +1,25 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "transferBlockItem",
+            "otherEntityName": "transferBlockItem",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "yearCode",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20161109125744",
+    "entityTableName": "year_code",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

@@ -1,0 +1,31 @@
+
+<div *ngIf="yearCode">
+    <h2><span>Year Code</span> {{yearCode.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Year Code</span></dt>
+        <dd>
+            <span>{{yearCode.yearCode}}</span>
+        </dd>
+        <dt><span>Transfer Block Item</span></dt>
+        <dd>
+            <div *ngIf="yearCode.transferBlockItem">
+                <a [routerLink]="['/transfer-block-item', yearCode.transferBlockItem?.id]">{{yearCode.transferBlockItem?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'year-code/'+ yearCode.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,39 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "fromModelCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fromVersionCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fromPageCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "toModelCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "toVersionCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "toPageCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "toMacroCode",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161109125715",
+    "entityTableName": "transfer_block_details",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

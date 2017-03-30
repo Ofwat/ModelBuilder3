@@ -1,0 +1,41 @@
+
+
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+        <h4 class="modal-title" id="myTransferBlockLabel">Create or edit a Transfer Block</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!transferBlock.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="transferBlock.id" readonly />
+        </div>
+
+        <div class="form-group">
+            <label for="field_transferBlockDetails">Transfer Block Details</label>
+            <select class="form-control" id="field_transferBlockDetails" name="transferBlockDetails" [(ngModel)]="transferBlock.transferBlockDetails">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="transferBlockDetailsOption.id === transferBlock.transferBlockDetails?.id ? transferBlock.transferBlockDetails : transferBlockDetailsOption" *ngFor="let transferBlockDetailsOption of transferblockdetails; trackBy: trackTransferBlockDetailsById">{{transferBlockDetailsOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_transfer">Transfer</label>
+            <select class="form-control" id="field_transfer" name="transfer" [(ngModel)]="transferBlock.transfer" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="transferOption.id === transferBlock.transfer?.id ? transferBlock.transfer : transferOption" *ngFor="let transferOption of transfers; trackBy: trackTransferById">{{transferOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

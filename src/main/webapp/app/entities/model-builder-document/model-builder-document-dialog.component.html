@@ -1,0 +1,79 @@
+
+
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+        <h4 class="modal-title" id="myModelBuilderDocumentLabel">Create or edit a Model Builder Document</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!modelBuilderDocument.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="modelBuilderDocument.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_reporter">Reporter</label>
+            <input type="text" class="form-control" name="reporter" id="field_reporter"
+                [(ngModel)]="modelBuilderDocument.reporter"
+            required />
+            <div [hidden]="!(editForm.controls.reporter?.dirty && editForm.controls.reporter?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.reporter?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_auditor">Auditor</label>
+            <input type="text" class="form-control" name="auditor" id="field_auditor"
+                [(ngModel)]="modelBuilderDocument.auditor"
+            required />
+            <div [hidden]="!(editForm.controls.auditor?.dirty && editForm.controls.auditor?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.auditor?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field_model">Model</label>
+            <select class="form-control" id="field_model" name="model" [(ngModel)]="modelBuilderDocument.model" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="modelOption.id === modelBuilderDocument.model?.id ? modelBuilderDocument.model : modelOption" *ngFor="let modelOption of models; trackBy: trackModelById">{{modelOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_page">Page</label>
+            <select class="form-control" id="field_page" name="page" [(ngModel)]="modelBuilderDocument.page" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="pageOption.id === modelBuilderDocument.page?.id ? modelBuilderDocument.page : pageOption" *ngFor="let pageOption of pages; trackBy: trackPageById">{{pageOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_section">Section</label>
+            <select class="form-control" id="field_section" name="section" [(ngModel)]="modelBuilderDocument.section" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="sectionOption.id === modelBuilderDocument.section?.id ? modelBuilderDocument.section : sectionOption" *ngFor="let sectionOption of sections; trackBy: trackSectionById">{{sectionOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_line">Line</label>
+            <select class="form-control" id="field_line" name="line" [(ngModel)]="modelBuilderDocument.line" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="lineOption.id === modelBuilderDocument.line?.id ? modelBuilderDocument.line : lineOption" *ngFor="let lineOption of lines; trackBy: trackLineById">{{lineOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

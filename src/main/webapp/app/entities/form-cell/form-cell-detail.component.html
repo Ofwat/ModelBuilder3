@@ -1,0 +1,75 @@
+
+<div *ngIf="formCell">
+    <h2><span>Form Cell</span> {{formCell.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Cell Code</span></dt>
+        <dd>
+            <span>{{formCell.cellCode}}</span>
+        </dd>
+        <dt><span>Use Confidence Grade</span></dt>
+        <dd>
+            <span>{{formCell.useConfidenceGrade}}</span>
+        </dd>
+        <dt><span>Input Confidence Grade</span></dt>
+        <dd>
+            <span>{{formCell.inputConfidenceGrade}}</span>
+        </dd>
+        <dt><span>Confidence Grade Input Code</span></dt>
+        <dd>
+            <span>{{formCell.confidenceGradeInputCode}}</span>
+        </dd>
+        <dt><span>Row Heading Source</span></dt>
+        <dd>
+            <span>{{formCell.rowHeadingSource}}</span>
+        </dd>
+        <dt><span>Column Heading Source</span></dt>
+        <dd>
+            <span>{{formCell.columnHeadingSource}}</span>
+        </dd>
+        <dt><span>Group Description Code</span></dt>
+        <dd>
+            <span>{{formCell.groupDescriptionCode}}</span>
+        </dd>
+        <dt><span>Row</span></dt>
+        <dd>
+            <span>{{formCell.row}}</span>
+        </dd>
+        <dt><span>Form Column</span></dt>
+        <dd>
+            <span>{{formCell.formColumn}}</span>
+        </dd>
+        <dt><span>Row Span</span></dt>
+        <dd>
+            <span>{{formCell.rowSpan}}</span>
+        </dd>
+        <dt><span>Form Column Span</span></dt>
+        <dd>
+            <span>{{formCell.formColumnSpan}}</span>
+        </dd>
+        <dt><span>Width</span></dt>
+        <dd>
+            <span>{{formCell.width}}</span>
+        </dd>
+        <dt><span>Form</span></dt>
+        <dd>
+            <div *ngIf="formCell.form">
+                <a [routerLink]="['/form', formCell.form?.id]">{{formCell.form?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'form-cell/'+ formCell.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

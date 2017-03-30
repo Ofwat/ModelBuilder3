@@ -1,0 +1,33 @@
+
+<div *ngIf="page">
+    <h2><span>Page</span> {{page.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Page Detail</span></dt>
+        <dd>
+            <div *ngIf="page.pageDetail">
+                <a [routerLink]="['/page-details', page.pageDetail?.id]">{{page.pageDetail?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Model</span></dt>
+        <dd>
+            <div *ngIf="page.model">
+                <a [routerLink]="['/model', page.model?.id]">{{page.model?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'page/'+ page.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

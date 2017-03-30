@@ -1,0 +1,45 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "lineDetail",
+            "otherEntityName": "lineDetails",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "line"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "cellRange",
+            "otherEntityName": "cellRange",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "line"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "cells",
+            "otherEntityName": "cell",
+            "otherEntityRelationshipName": "line"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "documents",
+            "otherEntityName": "modelBuilderDocument",
+            "otherEntityRelationshipName": "line"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "section",
+            "otherEntityName": "section",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20161109125733",
+    "entityTableName": "line",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

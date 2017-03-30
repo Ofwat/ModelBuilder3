@@ -1,0 +1,33 @@
+
+<div *ngIf="validationRule">
+    <h2><span>Validation Rule</span> {{validationRule.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Validation Rule Detail</span></dt>
+        <dd>
+            <div *ngIf="validationRule.validationRuleDetail">
+                <a [routerLink]="['/validation-rule-details', validationRule.validationRuleDetail?.id]">{{validationRule.validationRuleDetail?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Model</span></dt>
+        <dd>
+            <div *ngIf="validationRule.model">
+                <a [routerLink]="['/model', validationRule.model?.id]">{{validationRule.model?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'validation-rule/'+ validationRule.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

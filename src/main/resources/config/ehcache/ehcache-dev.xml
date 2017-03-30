@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns='http://www.ehcache.org/v3'
+         xsi:schemaLocation="http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core-3.0.xsd">
+
+    <cache-template name="simple">
+        <expiry>
+            <ttl unit="seconds">3600</ttl>
+        </expiry>
+        <heap unit="entries">100</heap>
+    </cache-template>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.User" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Authority" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.User.authorities" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.PersistentToken" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.User.persistentTokens" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Model" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Model.modelAudits" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Model.items" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Model.years" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Model.headings" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Model.validationRules" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Model.companyPages" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Model.documents" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Model.pages" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Model.transfers" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Model.macros" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Model.texts" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Model.inputs" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.ModelDetails" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Transfer" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Transfer.transferBlocks" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.TransferCondition" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.TransferBlock" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.TransferBlock.transferBlockItems" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.TransferBlockDetails" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.TransferBlockItem" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.TransferBlockItem.yearCodes" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.ModelAudit" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.ModelAudit.changes" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.AuditDetails" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.AuditChange" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Item" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Year" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Input" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Heading" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.ValidationRule" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.ValidationRule.validationRuleItems" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.ValidationRuleDetails" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.ValidationRuleItem" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.CompanyPage" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.ModelBuilderDocument" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Page" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Page.sections" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Page.documents" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.PageDetails" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Section" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Section.documents" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Section.lines" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Section.forms" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.SectionDetails" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Line" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Line.cells" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Line.documents" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.LineDetails" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.CellRange" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Cell" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Form" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Form.formCells" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Form.formHeadingsTops" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Form.formHeadingsLefts" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.FormDetails" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.FormHeadingCell" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.FormCell" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Macro" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Text" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.Text.textBlocks" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.TextBlock" uses-template="simple"/>
+
+    <cache alias="uk.gov.ofwat.fountain.modelbuilder.domain.YearCode" uses-template="simple"/>
+
+    <!-- jhipster-needle-ehcache-add-entry -->
+</config>

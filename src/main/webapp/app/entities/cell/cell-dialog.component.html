@@ -1,0 +1,76 @@
+
+
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+        <h4 class="modal-title" id="myCellLabel">Create or edit a Cell</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!cell.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="cell.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                [(ngModel)]="cell.code"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_year">Year</label>
+            <input type="text" class="form-control" name="year" id="field_year"
+                [(ngModel)]="cell.year"
+            required />
+            <div [hidden]="!(editForm.controls.year?.dirty && editForm.controls.year?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.year?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_equation">Equation</label>
+            <input type="text" class="form-control" name="equation" id="field_equation"
+                [(ngModel)]="cell.equation"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_type">Type</label>
+            <input type="text" class="form-control" name="type" id="field_type"
+                [(ngModel)]="cell.type"
+            required />
+            <div [hidden]="!(editForm.controls.type?.dirty && editForm.controls.type?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.type?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_cgType">Cg Type</label>
+            <input type="text" class="form-control" name="cgType" id="field_cgType"
+                [(ngModel)]="cell.cgType"
+             />
+        </div>
+
+        <div class="form-group">
+            <label for="field_line">Line</label>
+            <select class="form-control" id="field_line" name="line" [(ngModel)]="cell.line" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="lineOption.id === cell.line?.id ? cell.line : lineOption" *ngFor="let lineOption of lines; trackBy: trackLineById">{{lineOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

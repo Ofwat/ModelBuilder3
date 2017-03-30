@@ -1,0 +1,73 @@
+
+<div *ngIf="lineDetails">
+    <h2><span>Line Details</span> {{lineDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Heading</span></dt>
+        <dd>
+            <span>{{lineDetails.heading}}</span>
+        </dd>
+        <dt><span>Code</span></dt>
+        <dd>
+            <span>{{lineDetails.code}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{lineDetails.description}}</span>
+        </dd>
+        <dt><span>Equation</span></dt>
+        <dd>
+            <span>{{lineDetails.equation}}</span>
+        </dd>
+        <dt><span>Line Number</span></dt>
+        <dd>
+            <span>{{lineDetails.lineNumber}}</span>
+        </dd>
+        <dt><span>Rule Text</span></dt>
+        <dd>
+            <span>{{lineDetails.ruleText}}</span>
+        </dd>
+        <dt><span>Line Type</span></dt>
+        <dd>
+            <span>{{lineDetails.lineType}}</span>
+        </dd>
+        <dt><span>Company Type</span></dt>
+        <dd>
+            <span>{{lineDetails.companyType}}</span>
+        </dd>
+        <dt><span>Use Confidence Grade</span></dt>
+        <dd>
+            <span>{{lineDetails.useConfidenceGrade}}</span>
+        </dd>
+        <dt><span>Validation Rule Code</span></dt>
+        <dd>
+            <span>{{lineDetails.validationRuleCode}}</span>
+        </dd>
+        <dt><span>Text Code</span></dt>
+        <dd>
+            <span>{{lineDetails.textCode}}</span>
+        </dd>
+        <dt><span>Unit</span></dt>
+        <dd>
+            <span>{{lineDetails.unit}}</span>
+        </dd>
+        <dt><span>Decimal Places</span></dt>
+        <dd>
+            <span>{{lineDetails.decimalPlaces}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'line-details/'+ lineDetails.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

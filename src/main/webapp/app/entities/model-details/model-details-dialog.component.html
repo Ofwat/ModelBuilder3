@@ -1,0 +1,167 @@
+
+
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+        <h4 class="modal-title" id="myModelDetailsLabel">Create or edit a Model Details</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!modelDetails.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="modelDetails.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                [(ngModel)]="modelDetails.code"
+            required />
+            <div [hidden]="!(editForm.controls.code?.dirty && editForm.controls.code?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.code?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="modelDetails.name"
+            required />
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_version">Version</label>
+            <input type="text" class="form-control" name="version" id="field_version"
+                [(ngModel)]="modelDetails.version"
+            required />
+            <div [hidden]="!(editForm.controls.version?.dirty && editForm.controls.version?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.version?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_modelType">Model Type</label>
+            <input type="text" class="form-control" name="modelType" id="field_modelType"
+                [(ngModel)]="modelDetails.modelType"
+            required />
+            <div [hidden]="!(editForm.controls.modelType?.dirty && editForm.controls.modelType?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.modelType?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_textCode">Text Code</label>
+            <input type="text" class="form-control" name="textCode" id="field_textCode"
+                [(ngModel)]="modelDetails.textCode"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_baseYearCode">Base Year Code</label>
+            <input type="text" class="form-control" name="baseYearCode" id="field_baseYearCode"
+                [(ngModel)]="modelDetails.baseYearCode"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_reportYearCode">Report Year Code</label>
+            <input type="text" class="form-control" name="reportYearCode" id="field_reportYearCode"
+                [(ngModel)]="modelDetails.reportYearCode"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_allowDataChanges">Allow Data Changes</label>
+            <input type="checkbox" class="form-control" name="allowDataChanges" id="field_allowDataChanges"
+                [(ngModel)]="modelDetails.allowDataChanges"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_modelFamilyCode">Model Family Code</label>
+            <input type="text" class="form-control" name="modelFamilyCode" id="field_modelFamilyCode"
+                [(ngModel)]="modelDetails.modelFamilyCode"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_modelFamilyParent">Model Family Parent</label>
+            <input type="checkbox" class="form-control" name="modelFamilyParent" id="field_modelFamilyParent"
+                [(ngModel)]="modelDetails.modelFamilyParent"
+             />
+            <div [hidden]="!(editForm.controls.modelFamilyParent?.dirty && editForm.controls.modelFamilyParent?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.modelFamilyParent?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_displayOrder">Display Order</label>
+            <input type="number" class="form-control" name="displayOrder" id="field_displayOrder"
+                [(ngModel)]="modelDetails.displayOrder"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_branchTag">Branch Tag</label>
+            <input type="text" class="form-control" name="branchTag" id="field_branchTag"
+                [(ngModel)]="modelDetails.branchTag"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_runCode">Run Code</label>
+            <input type="text" class="form-control" name="runCode" id="field_runCode"
+                [(ngModel)]="modelDetails.runCode"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_lastModified">Last Modified</label>
+            <div class="input-group">
+                <input id="field_lastModified" type="datetime-local" class="form-control" name="lastModified" [(ngModel)]="modelDetails.lastModified"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_created">Created</label>
+            <div class="input-group">
+                <input id="field_created" type="datetime-local" class="form-control" name="created" [(ngModel)]="modelDetails.created"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_createdBy">Created By</label>
+            <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                [(ngModel)]="modelDetails.createdBy"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_lastModifiedBy">Last Modified By</label>
+            <input type="text" class="form-control" name="lastModifiedBy" id="field_lastModifiedBy"
+                [(ngModel)]="modelDetails.lastModifiedBy"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_fountainModelId">Fountain Model Id</label>
+            <input type="number" class="form-control" name="fountainModelId" id="field_fountainModelId"
+                [(ngModel)]="modelDetails.fountainModelId"
+             />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

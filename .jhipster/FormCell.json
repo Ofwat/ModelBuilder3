@@ -1,0 +1,72 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "form",
+            "otherEntityName": "form",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "cellCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "useConfidenceGrade",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "inputConfidenceGrade",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "confidenceGradeInputCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rowHeadingSource",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "columnHeadingSource",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "groupDescriptionCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "row",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "formColumn",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "rowSpan",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "formColumnSpan",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "width",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161109125740",
+    "entityTableName": "form_cell",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

@@ -1,0 +1,47 @@
+
+<div *ngIf="heading">
+    <h2><span>Heading</span> {{heading.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Code</span></dt>
+        <dd>
+            <span>{{heading.code}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{heading.description}}</span>
+        </dd>
+        <dt><span>Notes</span></dt>
+        <dd>
+            <span>{{heading.notes}}</span>
+        </dd>
+        <dt><span>Parent</span></dt>
+        <dd>
+            <span>{{heading.parent}}</span>
+        </dd>
+        <dt><span>Annotation</span></dt>
+        <dd>
+            <span>{{heading.annotation}}</span>
+        </dd>
+        <dt><span>Model</span></dt>
+        <dd>
+            <div *ngIf="heading.model">
+                <a [routerLink]="['/model', heading.model?.id]">{{heading.model?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'heading/'+ heading.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

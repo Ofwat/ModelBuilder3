@@ -1,0 +1,63 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "heading",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "equation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lineNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ruleText",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lineType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "companyType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "useConfidenceGrade",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "validationRuleCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "textCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "decimalPlaces",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20161109125734",
+    "entityTableName": "line_details",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

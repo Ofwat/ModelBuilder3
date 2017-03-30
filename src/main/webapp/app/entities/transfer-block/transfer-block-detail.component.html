@@ -1,0 +1,33 @@
+
+<div *ngIf="transferBlock">
+    <h2><span>Transfer Block</span> {{transferBlock.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Transfer Block Details</span></dt>
+        <dd>
+            <div *ngIf="transferBlock.transferBlockDetails">
+                <a [routerLink]="['/transfer-block-details', transferBlock.transferBlockDetails?.id]">{{transferBlock.transferBlockDetails?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Transfer</span></dt>
+        <dd>
+            <div *ngIf="transferBlock.transfer">
+                <a [routerLink]="['/transfer', transferBlock.transfer?.id]">{{transferBlock.transfer?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'transfer-block/'+ transferBlock.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

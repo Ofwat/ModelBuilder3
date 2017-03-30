@@ -1,0 +1,47 @@
+
+<div *ngIf="item">
+    <h2><span>Item</span> {{item.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Code</span></dt>
+        <dd>
+            <span>{{item.code}}</span>
+        </dd>
+        <dt><span>Version Number</span></dt>
+        <dd>
+            <span>{{item.versionNumber}}</span>
+        </dd>
+        <dt><span>Pricebase Code</span></dt>
+        <dd>
+            <span>{{item.pricebaseCode}}</span>
+        </dd>
+        <dt><span>Purpose Code</span></dt>
+        <dd>
+            <span>{{item.purposeCode}}</span>
+        </dd>
+        <dt><span>Text Code</span></dt>
+        <dd>
+            <span>{{item.textCode}}</span>
+        </dd>
+        <dt><span>Model</span></dt>
+        <dd>
+            <div *ngIf="item.model">
+                <a [routerLink]="['/model', item.model?.id]">{{item.model?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'item/'+ item.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

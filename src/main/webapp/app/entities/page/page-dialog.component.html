@@ -1,0 +1,41 @@
+
+
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+        <h4 class="modal-title" id="myPageLabel">Create or edit a Page</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!page.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="page.id" readonly />
+        </div>
+
+        <div class="form-group">
+            <label for="field_pageDetail">Page Detail</label>
+            <select class="form-control" id="field_pageDetail" name="pageDetail" [(ngModel)]="page.pageDetail">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="pageDetailsOption.id === page.pageDetail?.id ? page.pageDetail : pageDetailsOption" *ngFor="let pageDetailsOption of pagedetails; trackBy: trackPageDetailsById">{{pageDetailsOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_model">Model</label>
+            <select class="form-control" id="field_model" name="model" [(ngModel)]="page.model" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="modelOption.id === page.model?.id ? page.model : modelOption" *ngFor="let modelOption of models; trackBy: trackModelById">{{modelOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

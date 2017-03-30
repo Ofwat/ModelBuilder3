@@ -1,0 +1,22 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "modelAudit",
+            "otherEntityName": "modelAudit",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "changeText",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161109125719",
+    "entityTableName": "audit_change",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

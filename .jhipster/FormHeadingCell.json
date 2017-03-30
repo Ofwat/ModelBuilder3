@@ -1,0 +1,94 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "formTop",
+            "otherEntityName": "form",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "formLeft",
+            "otherEntityName": "form",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "text",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "useLineNumber",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "useItemCode",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "useItemDescription",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "useUnit",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "useYearCode",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "useConfidenceGrades",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "row",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "formHeadingColumn",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "rowSpan",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "formHeadingColumnSpan",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "itemCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "yearCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "width",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cellCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "groupDescriptionCode",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161109125739",
+    "entityTableName": "form_heading_cell",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

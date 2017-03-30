@@ -1,0 +1,27 @@
+
+<div *ngIf="model">
+    <h2><span>Model</span> {{model.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Model Details</span></dt>
+        <dd>
+            <div *ngIf="model.modelDetails">
+                <a [routerLink]="['/model-details', model.modelDetails?.id]">{{model.modelDetails?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'model/'+ model.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

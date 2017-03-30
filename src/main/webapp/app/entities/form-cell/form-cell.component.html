@@ -1,0 +1,102 @@
+<div>
+    <h2><span>Form Cells</span>
+        <button class="btn btn-primary float-xs-right create-form-cell" [routerLink]="['/', { outlets: { popup: ['form-cell-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down" >
+            Create new Form Cell
+            </span>
+        </button></h2>
+    <jhi-alert></jhi-alert>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right">
+                        <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="Query">
+                        <span  class="input-group-btn width-min">
+                            <button class="btn btn-info" (click)="search(currentSearch)">
+                                <span class="fa fa-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" *ngIf="currentSearch">
+                            <button class="btn btn-info" (click)="clear()">
+                                <span class="fa fa-trash-o"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="formCells">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Cell Code</span></th>
+            <th><span>Use Confidence Grade</span></th>
+            <th><span>Input Confidence Grade</span></th>
+            <th><span>Confidence Grade Input Code</span></th>
+            <th><span>Row Heading Source</span></th>
+            <th><span>Column Heading Source</span></th>
+            <th><span>Group Description Code</span></th>
+            <th><span>Row</span></th>
+            <th><span>Form Column</span></th>
+            <th><span>Row Span</span></th>
+            <th><span>Form Column Span</span></th>
+            <th><span>Width</span></th>
+            <th><span>Form</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let formCell of formCells ;trackBy: trackId">
+                <td><a [routerLink]="['../form-cell', formCell.id ]">{{formCell.id}}</a></td>
+                <td>{{formCell.cellCode}}</td>
+                <td>{{formCell.useConfidenceGrade}}</td>
+                <td>{{formCell.inputConfidenceGrade}}</td>
+                <td>{{formCell.confidenceGradeInputCode}}</td>
+                <td>{{formCell.rowHeadingSource}}</td>
+                <td>{{formCell.columnHeadingSource}}</td>
+                <td>{{formCell.groupDescriptionCode}}</td>
+                <td>{{formCell.row}}</td>
+                <td>{{formCell.formColumn}}</td>
+                <td>{{formCell.rowSpan}}</td>
+                <td>{{formCell.formColumnSpan}}</td>
+                <td>{{formCell.width}}</td>
+                <td>
+                    <div *ngIf="formCell.form">
+                        <a [routerLink]="['../form', formCell.form?.id ]" >{{formCell.form?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-xs-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../form-cell', formCell.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'form-cell/'+ formCell.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'form-cell/'+ formCell.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

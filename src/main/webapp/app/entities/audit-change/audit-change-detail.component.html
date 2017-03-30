@@ -1,0 +1,31 @@
+
+<div *ngIf="auditChange">
+    <h2><span>Audit Change</span> {{auditChange.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Change Text</span></dt>
+        <dd>
+            <span>{{auditChange.changeText}}</span>
+        </dd>
+        <dt><span>Model Audit</span></dt>
+        <dd>
+            <div *ngIf="auditChange.modelAudit">
+                <a [routerLink]="['/model-audit', auditChange.modelAudit?.id]">{{auditChange.modelAudit?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'audit-change/'+ auditChange.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

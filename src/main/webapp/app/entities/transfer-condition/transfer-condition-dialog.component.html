@@ -1,0 +1,75 @@
+
+
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+        <h4 class="modal-title" id="myTransferConditionLabel">Create or edit a Transfer Condition</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!transferCondition.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="transferCondition.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_itemCode">Item Code</label>
+            <input type="text" class="form-control" name="itemCode" id="field_itemCode"
+                [(ngModel)]="transferCondition.itemCode"
+            required />
+            <div [hidden]="!(editForm.controls.itemCode?.dirty && editForm.controls.itemCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.itemCode?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_yearCode">Year Code</label>
+            <input type="text" class="form-control" name="yearCode" id="field_yearCode"
+                [(ngModel)]="transferCondition.yearCode"
+            required />
+            <div [hidden]="!(editForm.controls.yearCode?.dirty && editForm.controls.yearCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.yearCode?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_value">Value</label>
+            <input type="text" class="form-control" name="value" id="field_value"
+                [(ngModel)]="transferCondition.value"
+            required />
+            <div [hidden]="!(editForm.controls.value?.dirty && editForm.controls.value?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.value?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_failureMessage">Failure Message</label>
+            <input type="text" class="form-control" name="failureMessage" id="field_failureMessage"
+                [(ngModel)]="transferCondition.failureMessage"
+            required />
+            <div [hidden]="!(editForm.controls.failureMessage?.dirty && editForm.controls.failureMessage?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.failureMessage?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

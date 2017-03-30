@@ -1,0 +1,51 @@
+
+<div *ngIf="input">
+    <h2><span>Input</span> {{input.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Code</span></dt>
+        <dd>
+            <span>{{input.code}}</span>
+        </dd>
+        <dt><span>Tag</span></dt>
+        <dd>
+            <span>{{input.tag}}</span>
+        </dd>
+        <dt><span>Version</span></dt>
+        <dd>
+            <span>{{input.version}}</span>
+        </dd>
+        <dt><span>Company</span></dt>
+        <dd>
+            <span>{{input.company}}</span>
+        </dd>
+        <dt><span>Default Input</span></dt>
+        <dd>
+            <span>{{input.defaultInput}}</span>
+        </dd>
+        <dt><span>Model Reference</span></dt>
+        <dd>
+            <span>{{input.modelReference}}</span>
+        </dd>
+        <dt><span>Model</span></dt>
+        <dd>
+            <div *ngIf="input.model">
+                <a [routerLink]="['/model', input.model?.id]">{{input.model?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'input/'+ input.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

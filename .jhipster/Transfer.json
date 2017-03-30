@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "transferCondition",
+            "otherEntityName": "transferCondition",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "transfer"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "transferBlocks",
+            "otherEntityName": "transferBlock",
+            "otherEntityRelationshipName": "transfer"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "model",
+            "otherEntityName": "model",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161109125712",
+    "entityTableName": "transfer",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

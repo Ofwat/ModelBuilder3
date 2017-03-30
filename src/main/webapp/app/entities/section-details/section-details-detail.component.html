@@ -1,0 +1,73 @@
+
+<div *ngIf="sectionDetails">
+    <h2><span>Section Details</span> {{sectionDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Display</span></dt>
+        <dd>
+            <span>{{sectionDetails.display}}</span>
+        </dd>
+        <dt><span>Code</span></dt>
+        <dd>
+            <span>{{sectionDetails.code}}</span>
+        </dd>
+        <dt><span>Group Type</span></dt>
+        <dd>
+            <span>{{sectionDetails.groupType}}</span>
+        </dd>
+        <dt><span>Use Line Number</span></dt>
+        <dd>
+            <span>{{sectionDetails.useLineNumber}}</span>
+        </dd>
+        <dt><span>Use Item Code</span></dt>
+        <dd>
+            <span>{{sectionDetails.useItemCode}}</span>
+        </dd>
+        <dt><span>Use Item Description</span></dt>
+        <dd>
+            <span>{{sectionDetails.useItemDescription}}</span>
+        </dd>
+        <dt><span>Use Unit</span></dt>
+        <dd>
+            <span>{{sectionDetails.useUnit}}</span>
+        </dd>
+        <dt><span>Use Year Code</span></dt>
+        <dd>
+            <span>{{sectionDetails.useYearCode}}</span>
+        </dd>
+        <dt><span>Use Confidence Grades</span></dt>
+        <dd>
+            <span>{{sectionDetails.useConfidenceGrades}}</span>
+        </dd>
+        <dt><span>Allow Group Selection</span></dt>
+        <dd>
+            <span>{{sectionDetails.allowGroupSelection}}</span>
+        </dd>
+        <dt><span>Allow Data Changes</span></dt>
+        <dd>
+            <span>{{sectionDetails.allowDataChanges}}</span>
+        </dd>
+        <dt><span>Section Type</span></dt>
+        <dd>
+            <span>{{sectionDetails.sectionType}}</span>
+        </dd>
+        <dt><span>Item Code Column</span></dt>
+        <dd>
+            <span>{{sectionDetails.itemCodeColumn}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'section-details/'+ sectionDetails.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

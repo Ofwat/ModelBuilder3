@@ -1,0 +1,31 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "modelAuditDetail",
+            "otherEntityName": "auditDetails",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "modelAudit"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "changes",
+            "otherEntityName": "auditChange",
+            "otherEntityRelationshipName": "modelAudit"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "model",
+            "otherEntityName": "model",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20161109125717",
+    "entityTableName": "model_audit",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

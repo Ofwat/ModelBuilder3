@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "username",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "timestamp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "reason",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161109125718",
+    "entityTableName": "audit_details",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

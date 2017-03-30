@@ -1,0 +1,47 @@
+
+<div *ngIf="macro">
+    <h2><span>Macro</span> {{macro.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{macro.name}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{macro.description}}</span>
+        </dd>
+        <dt><span>Block</span></dt>
+        <dd>
+            <span>{{macro.block}}</span>
+        </dd>
+        <dt><span>Conditional Item Code</span></dt>
+        <dd>
+            <span>{{macro.conditionalItemCode}}</span>
+        </dd>
+        <dt><span>Page Code</span></dt>
+        <dd>
+            <span>{{macro.pageCode}}</span>
+        </dd>
+        <dt><span>Model</span></dt>
+        <dd>
+            <div *ngIf="macro.model">
+                <a [routerLink]="['/model', macro.model?.id]">{{macro.model?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'macro/'+ macro.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

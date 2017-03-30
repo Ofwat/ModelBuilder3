@@ -1,0 +1,51 @@
+
+<div *ngIf="textBlock">
+    <h2><span>Text Block</span> {{textBlock.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{textBlock.description}}</span>
+        </dd>
+        <dt><span>Version Number</span></dt>
+        <dd>
+            <span>{{textBlock.versionNumber}}</span>
+        </dd>
+        <dt><span>Text Format Code</span></dt>
+        <dd>
+            <span>{{textBlock.textFormatCode}}</span>
+        </dd>
+        <dt><span>Text Type Code</span></dt>
+        <dd>
+            <span>{{textBlock.textTypeCode}}</span>
+        </dd>
+        <dt><span>Retired</span></dt>
+        <dd>
+            <span>{{textBlock.retired}}</span>
+        </dd>
+        <dt><span>Data</span></dt>
+        <dd>
+            <span>{{textBlock.data}}</span>
+        </dd>
+        <dt><span>Text</span></dt>
+        <dd>
+            <div *ngIf="textBlock.text">
+                <a [routerLink]="['/text', textBlock.text?.id]">{{textBlock.text?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'text-block/'+ textBlock.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

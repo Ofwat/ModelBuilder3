@@ -1,0 +1,49 @@
+
+<div *ngIf="transferBlockDetails">
+    <h2><span>Transfer Block Details</span> {{transferBlockDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>From Model Code</span></dt>
+        <dd>
+            <span>{{transferBlockDetails.fromModelCode}}</span>
+        </dd>
+        <dt><span>From Version Code</span></dt>
+        <dd>
+            <span>{{transferBlockDetails.fromVersionCode}}</span>
+        </dd>
+        <dt><span>From Page Code</span></dt>
+        <dd>
+            <span>{{transferBlockDetails.fromPageCode}}</span>
+        </dd>
+        <dt><span>To Model Code</span></dt>
+        <dd>
+            <span>{{transferBlockDetails.toModelCode}}</span>
+        </dd>
+        <dt><span>To Version Code</span></dt>
+        <dd>
+            <span>{{transferBlockDetails.toVersionCode}}</span>
+        </dd>
+        <dt><span>To Page Code</span></dt>
+        <dd>
+            <span>{{transferBlockDetails.toPageCode}}</span>
+        </dd>
+        <dt><span>To Macro Code</span></dt>
+        <dd>
+            <span>{{transferBlockDetails.toMacroCode}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'transfer-block-details/'+ transferBlockDetails.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

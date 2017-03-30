@@ -1,0 +1,37 @@
+
+<div *ngIf="transferCondition">
+    <h2><span>Transfer Condition</span> {{transferCondition.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Item Code</span></dt>
+        <dd>
+            <span>{{transferCondition.itemCode}}</span>
+        </dd>
+        <dt><span>Year Code</span></dt>
+        <dd>
+            <span>{{transferCondition.yearCode}}</span>
+        </dd>
+        <dt><span>Value</span></dt>
+        <dd>
+            <span>{{transferCondition.value}}</span>
+        </dd>
+        <dt><span>Failure Message</span></dt>
+        <dd>
+            <span>{{transferCondition.failureMessage}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'transfer-condition/'+ transferCondition.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

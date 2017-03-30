@@ -1,0 +1,31 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "transferBlockDetails",
+            "otherEntityName": "transferBlockDetails",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "transferBlock"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "transferBlockItems",
+            "otherEntityName": "transferBlockItem",
+            "otherEntityRelationshipName": "transferBLock"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "transfer",
+            "otherEntityName": "transfer",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20161109125714",
+    "entityTableName": "transfer_block",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

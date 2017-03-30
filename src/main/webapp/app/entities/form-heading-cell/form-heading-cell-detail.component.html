@@ -1,0 +1,97 @@
+
+<div *ngIf="formHeadingCell">
+    <h2><span>Form Heading Cell</span> {{formHeadingCell.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Text</span></dt>
+        <dd>
+            <span>{{formHeadingCell.text}}</span>
+        </dd>
+        <dt><span>Use Line Number</span></dt>
+        <dd>
+            <span>{{formHeadingCell.useLineNumber}}</span>
+        </dd>
+        <dt><span>Use Item Code</span></dt>
+        <dd>
+            <span>{{formHeadingCell.useItemCode}}</span>
+        </dd>
+        <dt><span>Use Item Description</span></dt>
+        <dd>
+            <span>{{formHeadingCell.useItemDescription}}</span>
+        </dd>
+        <dt><span>Use Unit</span></dt>
+        <dd>
+            <span>{{formHeadingCell.useUnit}}</span>
+        </dd>
+        <dt><span>Use Year Code</span></dt>
+        <dd>
+            <span>{{formHeadingCell.useYearCode}}</span>
+        </dd>
+        <dt><span>Use Confidence Grades</span></dt>
+        <dd>
+            <span>{{formHeadingCell.useConfidenceGrades}}</span>
+        </dd>
+        <dt><span>Row</span></dt>
+        <dd>
+            <span>{{formHeadingCell.row}}</span>
+        </dd>
+        <dt><span>Form Heading Column</span></dt>
+        <dd>
+            <span>{{formHeadingCell.formHeadingColumn}}</span>
+        </dd>
+        <dt><span>Row Span</span></dt>
+        <dd>
+            <span>{{formHeadingCell.rowSpan}}</span>
+        </dd>
+        <dt><span>Form Heading Column Span</span></dt>
+        <dd>
+            <span>{{formHeadingCell.formHeadingColumnSpan}}</span>
+        </dd>
+        <dt><span>Item Code</span></dt>
+        <dd>
+            <span>{{formHeadingCell.itemCode}}</span>
+        </dd>
+        <dt><span>Year Code</span></dt>
+        <dd>
+            <span>{{formHeadingCell.yearCode}}</span>
+        </dd>
+        <dt><span>Width</span></dt>
+        <dd>
+            <span>{{formHeadingCell.width}}</span>
+        </dd>
+        <dt><span>Cell Code</span></dt>
+        <dd>
+            <span>{{formHeadingCell.cellCode}}</span>
+        </dd>
+        <dt><span>Group Description Code</span></dt>
+        <dd>
+            <span>{{formHeadingCell.groupDescriptionCode}}</span>
+        </dd>
+        <dt><span>Form Top</span></dt>
+        <dd>
+            <div *ngIf="formHeadingCell.formTop">
+                <a [routerLink]="['/form', formHeadingCell.formTop?.id]">{{formHeadingCell.formTop?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Form Left</span></dt>
+        <dd>
+            <div *ngIf="formHeadingCell.formLeft">
+                <a [routerLink]="['/form', formHeadingCell.formLeft?.id]">{{formHeadingCell.formLeft?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'form-heading-cell/'+ formHeadingCell.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

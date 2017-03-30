@@ -1,0 +1,93 @@
+
+<div *ngIf="modelDetails">
+    <h2><span>Model Details</span> {{modelDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span>Code</span></dt>
+        <dd>
+            <span>{{modelDetails.code}}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{modelDetails.name}}</span>
+        </dd>
+        <dt><span>Version</span></dt>
+        <dd>
+            <span>{{modelDetails.version}}</span>
+        </dd>
+        <dt><span>Model Type</span></dt>
+        <dd>
+            <span>{{modelDetails.modelType}}</span>
+        </dd>
+        <dt><span>Text Code</span></dt>
+        <dd>
+            <span>{{modelDetails.textCode}}</span>
+        </dd>
+        <dt><span>Base Year Code</span></dt>
+        <dd>
+            <span>{{modelDetails.baseYearCode}}</span>
+        </dd>
+        <dt><span>Report Year Code</span></dt>
+        <dd>
+            <span>{{modelDetails.reportYearCode}}</span>
+        </dd>
+        <dt><span>Allow Data Changes</span></dt>
+        <dd>
+            <span>{{modelDetails.allowDataChanges}}</span>
+        </dd>
+        <dt><span>Model Family Code</span></dt>
+        <dd>
+            <span>{{modelDetails.modelFamilyCode}}</span>
+        </dd>
+        <dt><span>Model Family Parent</span></dt>
+        <dd>
+            <span>{{modelDetails.modelFamilyParent}}</span>
+        </dd>
+        <dt><span>Display Order</span></dt>
+        <dd>
+            <span>{{modelDetails.displayOrder}}</span>
+        </dd>
+        <dt><span>Branch Tag</span></dt>
+        <dd>
+            <span>{{modelDetails.branchTag}}</span>
+        </dd>
+        <dt><span>Run Code</span></dt>
+        <dd>
+            <span>{{modelDetails.runCode}}</span>
+        </dd>
+        <dt><span>Last Modified</span></dt>
+        <dd>
+            <span>{{modelDetails.lastModified | date:'medium'}}</span>
+        </dd>
+        <dt><span>Created</span></dt>
+        <dd>
+            <span>{{modelDetails.created | date:'medium'}}</span>
+        </dd>
+        <dt><span>Created By</span></dt>
+        <dd>
+            <span>{{modelDetails.createdBy}}</span>
+        </dd>
+        <dt><span>Last Modified By</span></dt>
+        <dd>
+            <span>{{modelDetails.lastModifiedBy}}</span>
+        </dd>
+        <dt><span>Fountain Model Id</span></dt>
+        <dd>
+            <span>{{modelDetails.fountainModelId}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'model-details/'+ modelDetails.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
