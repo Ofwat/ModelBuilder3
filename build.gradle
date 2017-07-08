@@ -36,6 +36,8 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'com.ewerk.gradle.plugins.jaxb2'
 defaultTasks 'bootRun'
 
+ext.schemaPath = project.hasProperty('schemaPath') ? project.schemaPath : ''
+
 sourceSets {
     main {
         java { srcDirs = [] }    // no source dirs for the java compiler
@@ -48,7 +50,9 @@ bootRepackage {
 }
 
 war {
-
+/*    manifest {
+        attributes 'Main-Class': 'uk.gov.ofwat.fountain.modelbuilder.ModelBuilderApp'
+    }*/
 }
 
 springBoot {
@@ -64,6 +68,7 @@ if (OperatingSystem.current().isWindows()) {
 
         doFirst {
             manifest {
+                //attributes 'Main-Class': 'uk.gov.ofwat.fountain.modelbuilder.ModelBuilderApp'
                 attributes 'Class-Path': configurations.runtime.files.collect {
                     it.toURL().toString().replaceFirst(/file:\/+/, '/').replaceAll(' ', '%20')
                 }.join(' ')
@@ -298,7 +303,7 @@ jaxb2 {
         'request-classes' {
 			generatedSourcesDir = 'src/main/java/uk/gov/ofwat/fountain/modelbuilder/model/generated'
             basePackage = 'uk.gov.ofwat.fountain.modelbuilder.model.generated'
-            schema = 'c:/dev/Fountain/schemas/newModel.xsd'
+            schema = "${project.ext.schemaPath}"
         }
     }
 }
